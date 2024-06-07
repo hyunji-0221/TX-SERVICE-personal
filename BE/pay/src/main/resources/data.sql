@@ -1,0 +1,23 @@
+select * from users;
+--
+-- insert into users (id, user_name, email, password, name)
+-- values (1, 'seller1', 'seller1@aaa.com', 'seller1pw', 'seller1');
+-- insert into users (id, user_name, email, password, name)
+-- values (2, 'seller2', 'seller2@bbb.com', 'seller2pw', 'seller2');
+-- insert into users (id, user_name, email, password, name)
+-- values (3, 'seller3', 'seller3@ccc.com', 'seller3pw', 'seller3');
+-- insert into users (id, user_name, email, password, name)
+-- values (4, 'buyer', 'buyer@abc.com', 'buyerPW', 'buyer');
+--
+-- insert into products (id, title, amount, building_type, contract_type, address, sold)
+-- values (1, '전세/오피스텔', '1,000,000,000','오피스텔','전세','서울시 강남구',false);
+-- insert into products (id, title, amount, building_type, contract_type, address, sold)
+-- values (2, '월세/오피스텔', '2,000,000,000','오피스텔','월세','서울시 송파구',false);
+-- insert into products (id, title, amount, building_type, contract_type, address, sold)
+-- values (3, '전세/아파트', '3,000,000','아파트','전세','서울시 은평구',false);
+-- insert into products (id, title, amount, building_type, contract_type, address, sold)
+-- values (4, '월세/아파트', '1,000,000','아파트','월세','서울시 강동구',false);
+-- insert into products (id, title, amount, building_type, contract_type, address, sold)
+-- values (5, '전세/오피스텔', '700,000','오피스텔','전세','서울시 강서구',false);
+-- insert into products (id, title, amount, building_type, contract_type, address, sold)
+-- values (6, '월세/오피스텔', '900,000','오피스텔','월세','서울시 마포구',false);

@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: api
+  datasource:
+    url: jdbc:mysql://localhost:3307/paydb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: personal
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      platform: mysql
+      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        jdbc:
+          lob:
+            '[non_contextual_creation]': true
+        '[format_sql]': true
+    show-sql: true
+    defer-datasource-initialization: true
+#    open-in-view: false
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type: trace
+jwt:
+  iss: bangEZ.com
+  exp: 24*60*60*1000
+  secret: bitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVon
+
+
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    groups-order: DESC
+#    operationsSorter: method
+#    disable-swagger-default-url: true
+#    display-request-duration: true
+#  api-docs:
+#    path: /api-docs
+#  show-actuator: true
+#  default-consumes-media-type: application/json
+#  default-produces-media-type: application/json
+#  paths-to-match:
+
