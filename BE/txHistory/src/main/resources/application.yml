@@ -1,0 +1,28 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: reactive
+  application:
+    name: txHisapp
+  data:
+    mongodb:
+      uri: mongodb://root:root@223.130.152.12:27017
+      database: txHisdb
+  sql:
+    init:
+      mode: always
+      encoding: UTF-8
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: debug
+        type: trace
+jwt:
+  secret: bitcampbitcampbitcampbitcampbitcampbitcampbitcampbitcampbitcampbitcamp
+  expiration:
+    access: 300 # 5?
+    refresh: 600 # 10?
+#
+#server:
+#  port : 8080

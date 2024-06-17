@@ -28,18 +28,20 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
-	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// Security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 
 	//log
 	implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
 	implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
 
-	//스웨거
+	//swagger
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 	implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
@@ -57,9 +59,7 @@ dependencies {
 
 	// JWT jjwt-api
 	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.5'
-	// jjwt impl
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.5'
-	// jjwt extentions jackson
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.5'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.2.0'
 

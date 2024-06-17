@@ -1,0 +1,51 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.bangez'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+	implementation group: 'org.mongodb', name: 'mongodb-driver-sync'
+
+	implementation 'org.apache.logging.log4j:log4j-api'
+	implementation 'org.apache.logging.log4j:log4j-core'
+
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+	implementation group: 'io.swagger', name: 'swagger-annotations', version: '1.6.14'
+
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
