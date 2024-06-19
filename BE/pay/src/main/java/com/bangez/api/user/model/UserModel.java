@@ -3,7 +3,6 @@ package com.bangez.api.user.model;
 import com.bangez.api.order.model.OrderModel;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.List;
 

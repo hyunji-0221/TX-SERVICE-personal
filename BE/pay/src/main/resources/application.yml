@@ -31,9 +31,9 @@ logging:
         SQL: debug
         type: trace
 jwt:
+  secret: bitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVon
   iss: bangEZ.com
   exp: 24*60*60*1000
-  secret: bitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVonbitcampVon
 
 
 #springdoc:
