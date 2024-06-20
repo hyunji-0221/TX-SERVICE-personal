@@ -1,3 +1,3 @@
 export const enum API{
-    SERVER = 'http://localhost:8080/api'
+    SERVER = 'http://localhost:8081/api'
 }

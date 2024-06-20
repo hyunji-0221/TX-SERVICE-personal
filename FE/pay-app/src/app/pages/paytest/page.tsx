@@ -42,29 +42,70 @@ export default function Navbar() {
         await loadScript('https://code.jquery.com/jquery-1.12.4.min.js');
         await loadScript('https://cdn.iamport.kr/js/iamport.payment-1.1.7.js');
 
+        // const PORTONE_API_SECRET = 'show19RFlbVGhUDoGOKYb8WbrpoEnJaYFaKwGR4kx4IuOuLIAohAwG34Vurk4Yfxcb69jB3MeevMR95R'
+
+        // const issueResponse = await fetch("https://api.portone.io/billing-keys", {
+        //     method: "POST",
+        //     headers: {
+        //         Authorization: '6d43d72e278ccd51f67a62476427436fb371850e',
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify({
+        //         channelKey: 'channel-key-2f60e88a-c64a-4c21-9346-6298ddeb50ab',
+        //         customer: {
+        //             id: 'customerId',
+        //         },
+        //         method: {
+        //             card: {
+        //                 credential: {
+        //                     number: '4481-2581-3819-6112',
+        //                     expiryYear: '2029',
+        //                     expiryMonth: '01',
+        //                     birthOrBusinessRegistrationNumber: '000221',
+        //                     passwordTwoDigits: '36',
+        //                 },
+        //             },
+        //         },
+        //     }),
+        // });
+        // if (!issueResponse.ok) {
+        //     const errorText = await issueResponse.text();
+        //     throw new Error(`issueResponse error: ${errorText}`);
+        // }
+
+        // const { billingKeyInfo } = await issueResponse.json();
+        // const { billingKey } = billingKeyInfo;
+
+        // console.log(`Billing Key: ${billingKey}`);
+
         const { IMP } = window;
             IMP.init('imp05080136');
+
+            const merchant_uid = new Date().getTime();
 
             IMP.request_pay(
                 {
                     pg: 'kakaopay',
-                    merchant_uid: `mid_${new Date().getTime()}`,
+                    // pg: 'html5_inicis',
+                    merchant_uid: `mid-${merchant_uid}`,
                     name: '최초 결제 테스트',
-                    amount: 10,
-                    customer_uid: 'customer_2',
+                    amount: 1000,
+                    customer_uid:  `cuid-${merchant_uid}`,
                     // custom_data: '',
-                    // buyer_email: '사용자 이메일',
-                    // buyer_name: userId,
+                    buyer_email: 'buyer@email.com',
+                    buyer_name: 'buyerName',
+                    buyer_tel: '010-1234-5678',
                 },
                 async (rsp: any) => {
                     console.log('결제 후 rsp', rsp);
                     if (rsp.success) {
                         try {
                             alert('결제 성공');
-                            const { data } = await axios.post(`${API.SERVER}/payment/verifyIamport/${rsp.imp_uid}`, {}, {
+                            const { data } = await axios.post(`${API.SERVER}/tx/add/${rsp.imp_uid}`, {}, {
                                 headers: {
                                     'Content-Type': 'application/json',
-                                    'Authorization': `Bearer ${parseCookies().accessToken}`,
+                                    // 'Authorization': `Bearer ${parseCookies().accessToken}`,
+                                    'Authorization': `Bearer 6c07b36db4c3b5371441d84a53679d65274c40a5`,
                                 },
                             }); // 프록시 사용
                             console.log(data.response.amount);
@@ -142,7 +183,7 @@ export default function Navbar() {
     );
 }
 
-//-----------------------------------------------------아래 코드는 결제가 되는 코드------------------------------------------------
+//-----------------------------------------------------아래 코드는 1차스프린트 코드------------------------------------------------
 
 // 'use client'
 // import React, { useEffect } from 'react';
